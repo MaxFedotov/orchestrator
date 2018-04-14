@@ -52,6 +52,7 @@ $(document).ready(function() {
     );
     $("[data-agent=port]").html(agent.Port)
     $("[data-agent=last_submitted]").html(agent.LastSubmitted)
+    $("[data-agent=available_seed_methods]").html(agent.AvailableSeedMethods.join(", "))
 
     var mySQLStatus = "" + agent.MySQLRunning + '<div class="pull-right">' +
       (agent.MySQLRunning ? '<button class="btn btn-xs btn-danger" data-command="mysql-stop">Stop</button>' :

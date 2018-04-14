@@ -46,6 +46,7 @@ type Agent struct {
 	Token                   string
 	LastSubmitted           string
 	AvailableLocalSnapshots []string
+	AvailableSeedMethods    []string
 	AvailableSnapshots      []string
 	LogicalVolumes          []LogicalVolume
 	MountPoint              Mount

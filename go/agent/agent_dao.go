@@ -332,6 +332,16 @@ func GetAgent(hostname string) (Agent, error) {
 			}
 		}
 		{
+			availableSeedMethodsUri := fmt.Sprintf("%s/available-seed-methods?token=%s", uri, token)
+			body, err := readResponse(httpGet(availableSeedMethodsUri))
+			if err == nil {
+				err = json.Unmarshal(body, &agent.AvailableSeedMethods)
+			}
+			if err != nil {
+				log.Errore(err)
+			}
+		}
+		{
 			lvSnapshotsUri := fmt.Sprintf("%s/lvs-snapshots?token=%s", uri, token)
 			body, err := readResponse(httpGet(lvSnapshotsUri))
 			if err == nil {
