@@ -390,6 +390,16 @@ func GetAgent(hostname string) (Agent, error) {
 			}
 		}
 		{
+			mySQLBackupdirDiskFreeUri := fmt.Sprintf("%s/mysql-backupdir-available-space?token=%s", uri, token)
+			body, err := readResponse(httpGet(mySQLBackupdirDiskFreeUri))
+			if err == nil {
+				err = json.Unmarshal(body, &agent.MySQLBackupdirDiskFree)
+			}
+			if err != nil {
+				log.Errore(err)
+			}
+		}
+		{
 			errorLogTailUri := fmt.Sprintf("%s/mysql-error-log-tail?token=%s", uri, token)
 			body, err := readResponse(httpGet(errorLogTailUri))
 			if err == nil {

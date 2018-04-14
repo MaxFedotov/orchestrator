@@ -53,6 +53,7 @@ type Agent struct {
 	MySQLDiskUsage          int64
 	MySQLPort               int64
 	MySQLDatadirDiskFree    int64
+	MySQLBackupdirDiskFree  int64
 	MySQLErrorLogTail       []string
 }
 

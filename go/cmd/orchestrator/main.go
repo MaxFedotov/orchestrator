@@ -132,7 +132,8 @@ func main() {
 
 	if len(flag.Args()) == 0 && *command == "" {
 		// No command, no argument: just prompt
-		fmt.Println(app.AppPrompt)
+		app.Http(*discovery)
+		//fmt.Println(app.AppPrompt)
 		return
 	}
 
