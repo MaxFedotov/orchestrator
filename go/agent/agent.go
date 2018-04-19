@@ -39,6 +39,14 @@ type Mount struct {
 	MySQLDiskUsage int64
 }
 
+// MySQLInfo provides information nesessary for pre-seed checks
+type MySQLInfo struct {
+	MySQLVersion         string
+	IsSlave              bool
+	IsMaster             bool
+	HasActiveConnections bool
+}
+
 // Agent presents the data of an agent
 type Agent struct {
 	Hostname                string
@@ -56,6 +64,7 @@ type Agent struct {
 	MySQLDatadirDiskFree    int64
 	MySQLBackupdirDiskFree  int64
 	MySQLErrorLogTail       []string
+	MySQLInfo               MySQLInfo
 }
 
 // SeedOperation makes for the high level data & state of a seed operation

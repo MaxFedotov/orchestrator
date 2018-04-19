@@ -352,6 +352,16 @@ func GetAgent(hostname string) (Agent, error) {
 			}
 		}
 		{
+			mysqlInfoUri := fmt.Sprintf("%s/mysql-info?token=%s", uri, token)
+			body, err := readResponse(httpGet(mysqlInfoUri))
+			if err == nil {
+				err = json.Unmarshal(body, &agent.MySQLInfo)
+			}
+			if err != nil {
+				log.Errore(err)
+			}
+		}
+		{
 			mountUri := fmt.Sprintf("%s/mount?token=%s", uri, token)
 			body, err := readResponse(httpGet(mountUri))
 			if err == nil {

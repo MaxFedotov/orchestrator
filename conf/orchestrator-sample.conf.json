@@ -3,7 +3,7 @@
   "EnableSyslog": false,
   "ListenAddress": ":3000",
   "MySQLTopologyUser": "orc_client_user",
-  "MySQLTopologyPassword": "orc_client_password",
+  "MySQLTopologyPassword": "orc_client_user",
   "MySQLTopologyCredentialsConfigFile": "",
   "MySQLTopologySSLPrivateKeyFile": "",
   "MySQLTopologySSLCertFile": "",
