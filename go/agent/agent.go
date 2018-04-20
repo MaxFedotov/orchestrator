@@ -47,6 +47,19 @@ type MySQLInfo struct {
 	HasActiveConnections bool
 }
 
+// MySQLDatabaseInfo provides information about MySQL databases, engines and sizes
+type MySQLDatabaseInfo struct {
+	MySQLDatabases map[string]*MySQLDatabase
+	InnoDBLogSize  int64
+}
+
+// MySQLDatabase info provides information about MySQL databases, engines and sizes
+type MySQLDatabase struct {
+	Engines      []string
+	PhysicalSize int64
+	LogicalSize  int64
+}
+
 // Agent presents the data of an agent
 type Agent struct {
 	Hostname                string
@@ -65,6 +78,7 @@ type Agent struct {
 	MySQLBackupdirDiskFree  int64
 	MySQLErrorLogTail       []string
 	MySQLInfo               MySQLInfo
+	MySQLDatabaseInfo       MySQLDatabaseInfo
 }
 
 // SeedOperation makes for the high level data & state of a seed operation

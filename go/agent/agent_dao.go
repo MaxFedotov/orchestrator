@@ -362,6 +362,16 @@ func GetAgent(hostname string) (Agent, error) {
 			}
 		}
 		{
+			mysqlDatabaseInfoUri := fmt.Sprintf("%s/mysql-databases?token=%s", uri, token)
+			body, err := readResponse(httpGet(mysqlDatabaseInfoUri))
+			if err == nil {
+				err = json.Unmarshal(body, &agent.MySQLDatabaseInfo)
+			}
+			if err != nil {
+				log.Errore(err)
+			}
+		}
+		{
 			mountUri := fmt.Sprintf("%s/mount?token=%s", uri, token)
 			body, err := readResponse(httpGet(mountUri))
 			if err == nil {
@@ -380,8 +390,8 @@ func GetAgent(hostname string) (Agent, error) {
 			// Actually an error is OK here since "status" returns with non-zero exit code when MySQL not running
 		}
 		{
-			mySQLRunningUri := fmt.Sprintf("%s/mysql-port?token=%s", uri, token)
-			body, err := readResponse(httpGet(mySQLRunningUri))
+			mySQLPortUri := fmt.Sprintf("%s/mysql-port?token=%s", uri, token)
+			body, err := readResponse(httpGet(mySQLPortUri))
 			if err == nil {
 				err = json.Unmarshal(body, &agent.MySQLPort)
 			}
