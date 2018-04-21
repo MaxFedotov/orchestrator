@@ -44,6 +44,7 @@ type MySQLInfo struct {
 	MySQLVersion         string
 	IsSlave              bool
 	IsMaster             bool
+	IsBinlogEnabled      bool
 	HasActiveConnections bool
 }
 
