@@ -42,6 +42,7 @@ type Mount struct {
 // MySQLInfo provides information nesessary for pre-seed checks
 type MySQLInfo struct {
 	MySQLVersion         string
+	MySQLDatadirPath     string
 	IsSlave              bool
 	IsMaster             bool
 	IsBinlogEnabled      bool
