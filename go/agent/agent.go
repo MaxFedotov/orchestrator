@@ -43,6 +43,7 @@ type Mount struct {
 type MySQLInfo struct {
 	MySQLVersion         string
 	MySQLDatadirPath     string
+	MySQLBackupdirPath   string
 	IsSlave              bool
 	IsMaster             bool
 	IsBinlogEnabled      bool
