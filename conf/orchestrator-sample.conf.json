@@ -65,7 +65,7 @@
   "PhysicalEnvironmentPattern": "[.]([^.]+[.][^.]+)[.]mydomain[.]com",
   "PromotionIgnoreHostnameFilters": [],
   "DetectSemiSyncEnforcedQuery": "",
-  "ServeAgentsHttp": false,
+  "ServeAgentsHttp": true,
   "AgentsServerPort": ":3001",
   "AgentsUseSSL": false,
   "AgentsUseMutualTLS": false,

@@ -56,8 +56,8 @@ func InitHttpClient() {
 		return net.DialTimeout(network, addr, httpTimeout)
 	}
 	httpTransport := &http.Transport{
-		TLSClientConfig: &tls.Config{InsecureSkipVerify: config.Config.AgentSSLSkipVerify},
-		Dial:            dialTimeout,
+		TLSClientConfig:       &tls.Config{InsecureSkipVerify: config.Config.AgentSSLSkipVerify},
+		Dial:                  dialTimeout,
 		ResponseHeaderTimeout: httpTimeout,
 	}
 	httpClient = &http.Client{Transport: httpTransport}
@@ -696,7 +696,7 @@ func executeSeed(seedId int64, targetHostname string, sourceHostname string) err
 		return updateSeedStateEntry(seedStateId, errors.New("Volume already mounted on source host; please unmount"))
 	}
 
-	seedFromLogicalVolume := sourceAgent.LogicalVolumes[0]
+	seedFromLogicalVolume := sourceAgent.LogicalVolumes[0] // why [0]??
 	seedStateId, _ = submitSeedStateEntry(seedId, fmt.Sprintf("%s Mounting logical volume: %s", sourceHostname, seedFromLogicalVolume.Path), "")
 	_, err = MountLV(sourceHostname, seedFromLogicalVolume.Path)
 	if err != nil {
